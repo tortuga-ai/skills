@@ -16,3 +16,4 @@ npx skills add https://github.com/tortuga-ai/skills
 | `tortuga:update-claudemd` | Update CLAUDE.md from latest git commits or full codebase scan |
 | `tortuga:image-check` | Scan codebase for oversized images and convert to WebP |
 | `tortuga:submit-to-indexnow` | Submit URLs to IndexNow for immediate Bing indexing |
+| `tortuga:revenuecat-ios-install` | Install and configure the core RevenueCat Purchases SDK in iOS apps |
