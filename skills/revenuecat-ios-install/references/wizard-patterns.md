@@ -27,5 +27,5 @@ Run package resolution and a build whenever possible. End with a short report of
 A future CLI can wrap this skill with:
 
 - `sdk`: SDK-only SPM integration
-- `doctor`: diagnose package, configure, capability, and dashboard mismatch symptoms
+- `doctor`: diagnose package, configure, and dashboard mismatch symptoms
 - `ci`: non-interactive mode using provided flags and no browser/login flow

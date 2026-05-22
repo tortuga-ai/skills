@@ -1,6 +1,6 @@
 ---
 name: tortuga:revenuecat-ios-install
-description: Interactive wizard-style RevenueCat SDK install for native iOS Swift and SwiftUI apps. Use when guiding a user through choices to install only the RevenueCat Purchases SDK with Swift Package Manager, configure Purchases at app launch, enable In-App Purchase capability, and verify the build. This skill does not use bundled scripts and does not add RevenueCatUI or paywalls.
+description: Interactive wizard-style RevenueCat SDK install for native iOS Swift and SwiftUI apps. Use when guiding a user through choices to install only the RevenueCat Purchases SDK with Swift Package Manager, configure Purchases at app launch, and verify the build. This skill does not use bundled scripts and does not add RevenueCatUI, paywalls, or Xcode capabilities.
 license: MIT
 metadata:
   author: tortuga-ai
@@ -9,7 +9,7 @@ metadata:
   public: true
   repo: https://github.com/tortuga-ai/skills
   date: May 2026
-  abstract: Interactive wizard for installing the core RevenueCat Purchases SDK in native iOS Swift and SwiftUI projects with SPM, app launch configuration, In-App Purchase capability setup, and build verification.
+  abstract: Interactive wizard for installing the core RevenueCat Purchases SDK in native iOS Swift and SwiftUI projects with SPM, app launch configuration, and build verification.
 ---
 
 # RevenueCat iOS Install Wizard
@@ -23,7 +23,7 @@ Inspect the project directly with normal shell reads/searches. Confirm:
 - one usable `.xcodeproj`
 - one iOS app target and scheme, or a clear target choice
 - a SwiftUI `@main App` entry point or UIKit app delegate
-- whether RevenueCat SDK package/products, `Purchases.configure`, and In-App Purchase capability already exist
+- whether RevenueCat SDK package/products and `Purchases.configure` already exist
 
 Stop if no iOS app target or app launch entry point exists. If prebuilt RevenueCat UI products are already installed, report that the project is outside this SDK-only wizard.
 
@@ -95,7 +95,6 @@ Configure `Purchases` exactly once, early in app launch:
 - `Purchases.configure(withAPIKey:)` with a hard-coded string when the user pasted a real key or chose the placeholder key
 - use a build-setting-backed value only when the user explicitly chose the build setting placeholder option
 - guard with `Purchases.isConfigured`
-- enable In-App Purchase capability on the app target
 
 If the user chooses option 1 and pastes a real public Apple SDK key, hard-code that exact key string in the app launch configuration. If the user chooses option 2, hard-code `appl_placeholder_revenuecat_public_sdk_key`. If the user chooses option 3, create a build setting placeholder and read it from the generated Info.plist.
 
@@ -109,20 +108,7 @@ Choices:
 3. Stop and show me what would change
 ```
 
-## Step 5: Enable Capability
-
-Enable In-App Purchase capability on the app target. Do not add StoreKit files, product IDs, paywall screens, or purchase buttons.
-
-Ask:
-
-```text
-Step 5 of 6: In-App Purchase capability
-Choices:
-1. Enable capability on the detected app target
-2. Skip for now and report manual Xcode steps
-```
-
-## Step 6: Verify
+## Step 5: Verify
 
 Run:
 
@@ -136,11 +122,10 @@ Then inspect:
 - `RevenueCat` product is linked
 - optional UI products/imports are absent
 - exactly one `Purchases.configure(...)` exists
-- In-App Purchase capability is enabled
 
 If verification is skipped or fails, report the exact reason and the next command to run.
 
-## Step 7: Report
+## Step 6: Report
 
 Report changed files, package/product added, SDK key handling, verification results, and manual RevenueCat dashboard/App Store Connect steps still required.
 

@@ -10,8 +10,6 @@ RevenueCat recommends Swift Package Manager for iOS projects. Use the faster SPM
 - version rule: `5.0.0 ..< 6.0.0`
 - required product for SDK setup: `RevenueCat`
 
-Enable the target's In-App Purchase capability after adding the package.
-
 ## Initialization
 
 Configure Purchases once, early in app launch. For SwiftUI apps, prefer the app struct `init`; for UIKit apps, use the app delegate launch method.
