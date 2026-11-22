@@ -17,3 +17,4 @@ npx skills add https://github.com/tortuga-ai/skills
 | `tortuga:image-check` | Scan codebase for oversized images and convert to WebP |
 | `tortuga:submit-to-indexnow` | Submit URLs to IndexNow for immediate Bing indexing |
 | `tortuga:revenuecat-ios-install` | Install and configure the core RevenueCat Purchases SDK in iOS apps |
+| `tortuga:tiktok-cover` | Download the published cover image of a TikTok video with curl and jq |
